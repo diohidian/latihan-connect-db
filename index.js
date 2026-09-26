@@ -9,6 +9,10 @@ app.use(express.urlencoded({
 
 app.use(router)
 
-app.listen(3000, () => {
-    console.log("app jalan");
-})
+if (require.main === module) {
+    app.listen(process.env.PORT || 3000, () => {
+        console.log("app jalan");
+    })
+}
+
+module.exports = app
